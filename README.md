@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+Project Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple client-side URL shortener built with React, allowing users to:
 
-## Available Scripts
+Input a long URL to generate a unique, shorter code.
 
-In the project directory, you can run:
+Set an expiration time (default: 30 minutes).
 
-### `npm start`
+Optionally provide a custom shortcode.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Persist link data in browser localStorage.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Redirect shortcodes to original URLs using React Router.
 
-### `npm test`
+View statistics of all shortened URLs.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Features
 
-### `npm run build`
+Generate Short URLs: Auto-generate a 6-character alphanumeric code if no custom shortcode is given.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Custom Shortcodes: Allow users to specify an alphanumeric string as shortcode (validated for uniqueness).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Link Expiry: Let users choose a validity period in minutes; files expire after that time.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Persistent Storage: Store all URL entries in localStorage so data remains after page reload.
 
-### `npm run eject`
+Redirection: Using React Router, dynamic routes (/:shortcode) capture codes and redirect to long URLs.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Statistics Page: List all created entries, showing shortcode, original URL, and expiration time.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Logging Middleware: Custom logger() function logs key events to the console for debugging or analytics.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Tech Stack
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+React: UI component library
 
-## Learn More
+React Router DOM: Client-side routing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+JavaScript: Application logic
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+localStorage: Browser storage
 
-### Code Splitting
+HTML & CSS: Basic styling (or integrate Tailwind/Bootstrap)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Installation & Setup
+Install dependencies
 
-### Analyzing the Bundle Size
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Run the development server
 
-### Making a Progressive Web App
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The app will open at http://localhost:3000
 
-### Advanced Configuration
+Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Navigate to the home page and enter:
 
-### Deployment
+Long URL (required, must start with http:// or https://).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Custom Shortcode (optional, must be alphanumeric and unique).
 
-### `npm run build` fails to minify
+Validity (in minutes, optional; defaults to 30).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Submit the form to generate a shortened link.
+
+Visit http://localhost:3000/<shortcode> to test redirection.
+
+Go to /stats to view all stored URL entries.
