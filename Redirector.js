@@ -14,7 +14,7 @@ const Redirector = () => {
       const expires = new Date(match.expiresAt);
 
       if (expires > now) {
-        window.location.href = match.longUrl; // 🚀 REDIRECT!
+        window.location.href = match.longUrl;
       } else {
         alert("This link has expired.");
         navigate("/");
